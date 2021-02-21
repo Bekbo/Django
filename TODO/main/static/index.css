@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+}
+header {
+    padding-top: 10px;
+    text-align: center;
+    height: 50px;
+    background: #56433D;
+}
+header h1 {
+    color: #F9C941;
+    font-weight: 100;
+    font-size: 2vw;
+}
+body{
+    background-color: #836b48;
+}
+.list{
+    margin-top: 20px;
+    text-align: center;
+}
+.adding-task {
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+}
+.adding-task input, button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(186, 186, 186);
+}
+.adding-task input {
+    width: 500px;
+    margin-right: 20px;
+    box-shadow: rgba(27, 31, 35, 0.075) 1px 2px 2px 1px inset;
+}
+::placeholder {
+    color: rgb(135, 135, 135);
+}
+.adding-task button {
+    color: bisque;
+    background-color: rgb(100, 87, 107);
+}
+.adding-task button:hover {
+    cursor: pointer;
+    background-color: rgb(52, 45, 56);
+}
+.to-do-items {
+	width: 80%;
+	border-spacing: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+.to-do-items th {
+	padding: 10px 20px;
+    background: #56433D;
+    color: #F9C941;
+    border-right: 2px solid;
+    font-size: 0.9em;
+}
+.to-do-items th:first-child {
+    text-align: left;
+}
+.to-do-items th:last-child {
+    border-right: none;
+}
+.to-do-items td {
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-top: 2px solid #56433D;
+    border-bottom: 2px solid #56433D;
+    border-right: 2px solid #56433D;
+}
+.to-do-items td:first-child {
+    border-left: 2px solid #56433D;
+    border-right: 2px solid #56433D;
+}
+.to-do-items td:nth-child(2){
+    text-align: left;
+}
+.todos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.toggle-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.toggle-buttons button{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.toggle-buttons button:hover {
+    cursor: pointer;
+    background-color: #56433D;
+    color: #ffffff;
+}

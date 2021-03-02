@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{%block body%}
+    <h1 class="list">List of Completed Todos in List1</h1>
+    <div class="todos">
+        <table class="to-do-items">
+            <tr>
+                <th>Task</th>
+                <th>Created At</th>
+                <th>Due To</th>
+                <th>Owner</th>
+                <th>Status</th>
+            </tr>
+            {% for todo in todos %}
+            <tr>
+                <td>{{ todo.title }} </td>
+                <td>{{ todo.created }}</td>
+                <td>{{ todo.due_on }}</td>
+                <td>{{ todo.owner }}</td>
+                <td>{{ todo.done }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

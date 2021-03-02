@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ToDo List</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>ToDo List</h1>
+        </header>
+        <div class="adding-task">
+            <input type="text" placeholder="New Task">
+            <button type="button" onclick="">Add</button>
+        </div>
+        {%block body%}
+
+        {%endblock%}
+        <div class="toggle-buttons">
+            <button >View completed tasks</button>
+            <button >Delete this task</button>
+        </div>
+    </body>
+</html>

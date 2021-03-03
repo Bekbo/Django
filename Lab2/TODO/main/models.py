@@ -5,11 +5,24 @@ import datetime
 # Create your models here.
 
 
+class TaskGroup(models.Model):
+    name = models.CharField(verbose_name='Название группы',
+                            max_length=100)
+
+    class Meta:
+        verbose_name = 'Группа задач'
+        verbose_name_plural = 'Группы задач'
+
+    def __str__(self):
+        return self.name
+
+
 class Task(models.Model):
     DONE_CHOICE = (
         (True, "Закончено"),
         (False, "В прогрессе")
     )
+    group = models.ForeignKey(TaskGroup, on_delete=models.CASCADE, verbose_name='Группа задачи')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Владелец задачи')
     title = models.CharField(max_length=100, verbose_name="Название задачи")
     created = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
@@ -25,7 +38,7 @@ class Task(models.Model):
         ordering = ['created']
 
     def __str__(self):
-        return self.title
+        return f'{self.group} - {self.title}'
 
 
 class Profile(models.Model):

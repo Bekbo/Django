@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
-from .models import Task, Profile
+from .models import Task, Profile, TaskGroup
 # Register your models here.
 
 
@@ -15,13 +15,14 @@ def make_published(modeladmin, request, queryset):
 
 class TaskAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Сведение о владельце', {'fields': ['title']}),
-        ('Task information', {'fields': ['owner', 'due_on', 'done'], 'classes': ['collapse']})
+        ('Сведение о владельце', {'fields': ['owner']}),
+        ('Task information', {'fields': ['title', 'group', 'due_on', 'done'], 'classes': ['collapse']})
     ]
     actions = [make_published]
-    list_filter = ['done', 'owner']
-    list_display = ['title', 'owner', 'created', 'due_on', 'done']
+    list_filter = ['group', 'done', 'owner']
+    list_display = ['title', 'group', 'owner', 'created', 'due_on', 'done']
 
 
 admin.site.register(Task, TaskAdmin)
+admin.site.register(TaskGroup)
 admin.site.register(Profile)

@@ -7,5 +7,11 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:E:\UserFiles\Univer\3course\Django\Lab2\TODO\db.sqlite3</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="todos@localhost" uuid="cf06d488-36c6-485a-81b5-46f6a7404ea8">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/todos</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -26,23 +26,23 @@ def index(request, group_key=""):
 
 def completed_todos(request, group_key=""):
     group = TaskGroup
-    print(group_key)
+    todos = Task.objects.all()
     context = {}
     try:
         if group_key == "":
             context = {
-                'todos': Task.objects.all().filter(done=True),
+                'todos': todos.filter(done=True),
                 'group': 'All'
             }
         if group_key and group_key != "":
             group = TaskGroup.objects.get(id=group_key)
             context = {
-                'todos': Task.objects.all().filter(group=group_key, done=True),
+                'todos': todos.filter(group=group_key, done=True),
                 'group': group
             }
     except TaskGroup.DoesNotExist:
         context = {
-            'todos': [],
-            'group': 'Group does not exit'
+            'todos': todos,
+            'group': f'All [Group {group_key} does not exit]'
         }
     return render(request, 'completedTodos.html', context=context)

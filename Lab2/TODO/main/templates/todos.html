@@ -5,7 +5,6 @@
         <table class="to-do-items">
             <tr>
                 <th>Task</th>
-                <th>List</th>
                 <th>Created At</th>
                 <th>Due To</th>
                 <th>Owner</th>
@@ -14,7 +13,6 @@
             {% for todo in todos %}
             <tr>
                 <td>{{ todo.title }} </td>
-                <td>{{ todo.group }} </td>
                 <td>{{ todo.created }}</td>
                 <td>{{ todo.due_on }}</td>
                 <td>{{ todo.owner }}</td>

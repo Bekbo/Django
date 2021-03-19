@@ -31,6 +31,9 @@ def index(request, group_key=""):
 
 class TodoGroupViewSet(mixins.ListModelMixin,
                   mixins.RetrieveModelMixin,
+                  mixins.CreateModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     queryset = TaskGroup.objects.all()
     serializer_class = TaskGroupSerializer
@@ -51,12 +54,15 @@ class TodoGroupViewSet(mixins.ListModelMixin,
 
 class TaskViewSet(mixins.ListModelMixin,
                   mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
+                  mixins.CreateModelMixin,
                   viewsets.GenericViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = (IsAuthenticated,)
 
-    @action(methods=['GET', 'PATCH', 'PUT', 'delete'], detail=True, permission_classes=(AllowAny,))
+    @action(methods=['GET', 'PUT', 'DELETE'], detail=True, permission_classes=(AllowAny,))
     def edit(self, request, pk):
         item = self.queryset.get(id=pk)
         serializer = TaskSerializer(item)
@@ -64,4 +70,6 @@ class TaskViewSet(mixins.ListModelMixin,
             item.title = request.data['title']
             item.done = request.data['done']
             item.save()
+        if request.method == 'DELETE':
+            item.delete()
         return Response(serializer.data)

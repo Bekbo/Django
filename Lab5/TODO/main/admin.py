@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from .models import Task, Profile, TaskGroup
 # Register your models here.
+from auth_.models import User
 
 
 class TaskChoiceInline(admin.StackedInline):
@@ -26,3 +27,4 @@ class TaskAdmin(admin.ModelAdmin):
 admin.site.register(Task, TaskAdmin)
 admin.site.register(TaskGroup)
 admin.site.register(Profile)
+admin.site.register(User)

@@ -3,6 +3,8 @@ from django.db import models
 import datetime
 
 # Create your models here.
+
+
 class TaskGroup(models.Model):
     name = models.CharField(verbose_name='Название группы',
                             max_length=100)
